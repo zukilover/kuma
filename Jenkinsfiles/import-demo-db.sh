@@ -28,8 +28,6 @@ run_db_import() {
     echo "Starting db import pod ${POD_NAME} in namespace ${KUBE_NAMESPACE}"
     kubectl run mdn-db-import \
         --image ${DOCKER_IMAGE} \
-        -it \
-        --rm  \
         -n "${KUBE_NAMESPACE}" \
         --restart=Never \
         --env="MYSQL_ROOT_PASSWORD=kuma" \
