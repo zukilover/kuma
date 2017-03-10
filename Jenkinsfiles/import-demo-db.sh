@@ -43,3 +43,4 @@ run_db_import() {
 cleanup_old_pods
 fetch_pod_ip
 run_db_import
+echo "DB import script complete"
