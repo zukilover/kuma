@@ -37,7 +37,7 @@ run_db_import() {
         --env="MYSQL_IP=$MYSQL_IP" \
         --env="MYSQL_PORT=$MYSQL_PORT" \
         --env="MDN_SAMPLE_DB_URL=$MDN_SAMPLE_DB_URL"
-    echo "DB import complete"
+    echo "DB import pod started"
 }
 
 cleanup_old_pods
