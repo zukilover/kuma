@@ -3,8 +3,8 @@ stage('Build & push images') {
 }
 
 stage('Deploy') {
-  env.KUBECONFIG = "${env.HOME}/.kube/virginia.kubeconfig"
-  env.DEIS_PROFILE = 'virginia'
+  env.KUBECONFIG = "${env.HOME}/.kube/frankfurt.kubeconfig"
+  env.DEIS_PROFILE = 'frankfurt'
   env.DEIS_BIN = 'deis2'
   env.DEIS_APP = 'mdn-demo-' + env.BRANCH_NAME
   env.DJANGO_SETTINGS_MODULE = 'kuma.settings.prod'
@@ -12,7 +12,7 @@ stage('Deploy') {
 
   sh 'make deis-create-and-or-config'
   sh 'make render-k8s-templates'
-  sh 'kubectl config use-context virginia'
+  sh 'kubectl config use-context frankfurt'
   sh 'kubectl apply -f k8s/ -n ' + env.DEIS_APP
   sh 'make deis-pull'
   sh 'make deis-migrate'
